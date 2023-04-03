@@ -16,6 +16,7 @@ local fps = Instance.new("TextLabel")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = ("lighthookwatermark")
 
 background.Name = "background"
 background.Parent = ScreenGui

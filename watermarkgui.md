@@ -1,1 +1,81 @@
 
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local background = Instance.new("Frame")
+local Frame = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local Frame_2 = Instance.new("Frame")
+local dev = Instance.new("TextLabel")
+local fps = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+background.Name = "background"
+background.Parent = ScreenGui
+background.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+background.BorderSizePixel = 0
+background.Position = UDim2.new(0.0227987431, 0, 0.0469135717, 0)
+background.Size = UDim2.new(0, 270, 0, 25)
+
+Frame.Parent = background
+Frame.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.292592585, 0, 0, 0)
+Frame.Size = UDim2.new(0, 2, 0, 25)
+
+title.Name = "title"
+title.Parent = background
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.Size = UDim2.new(0, 79, 0, 24)
+title.Font = Enum.Font.Roboto
+title.Text = "lighthook"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 14.000
+
+Frame_2.Parent = background
+Frame_2.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0.496296287, 0, 0, 0)
+Frame_2.Size = UDim2.new(0, 2, 0, 25)
+
+dev.Name = "dev"
+dev.Parent = background
+dev.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+dev.BackgroundTransparency = 1.000
+dev.Position = UDim2.new(0.251851857, 0, 0, 0)
+dev.Size = UDim2.new(0, 79, 0, 24)
+dev.Font = Enum.Font.Roboto
+dev.Text = "dev"
+dev.TextColor3 = Color3.fromRGB(255, 255, 255)
+dev.TextSize = 14.000
+
+fps.Name = "fps"
+fps.Parent = background
+fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+fps.BackgroundTransparency = 1.000
+fps.Position = UDim2.new(0.448148161, 0, 0, 0)
+fps.Size = UDim2.new(0, 79, 0, 24)
+fps.Font = Enum.Font.Roboto
+fps.Text = "fps:"
+fps.TextColor3 = Color3.fromRGB(255, 255, 255)
+fps.TextSize = 14.000
+
+-- Scripts:
+
+local function CWFO_fake_script() -- fps.LocalScript 
+	local script = Instance.new('LocalScript', fps)
+
+	while wait() do
+		local amount = math.floor(workspace:GetRealPhysicsFPS())
+		script.Parent.Text = "fps: "..amount
+	end
+end
+coroutine.wrap(CWFO_fake_script)()
